@@ -1,0 +1,2 @@
+R11
+https://github.com/Live2D/CubismUnityComponents/archive/Unity/R11.zip
