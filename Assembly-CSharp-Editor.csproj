@@ -85,6 +85,8 @@
     <Compile Include="Assets\Live2D\Cubism\Framework\MotionFade\Editor\CubismFadeMotionImporter.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\Pose\Editor\CubismPoseMotionImporter.cs" />
     <Compile Include="Assets\Live2D\Cubism\Samples\Editor\ImportCustomization.cs" />
+    <Compile Include="Assets\Live2DLivePaint\Editor\MotionLegacyChangImporter.cs" />
+    <Compile Include="Assets\Live2DLivePaint\Editor\PaintingCustomImporter.cs" />
     <None Include="Assets\Live2D\Cubism\Samples\Editor\Description.txt" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/ganep/Documents/Unity Projects/Live2DPainting/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

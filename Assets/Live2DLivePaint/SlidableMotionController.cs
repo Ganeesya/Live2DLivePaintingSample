@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Live2D.Cubism.Core;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SlidableMotionController : MonoBehaviour
 {
-    public Slider   timeSlider = null;
+    private Slider   timeSlider = null;
 
-    public Dropdown motionDropdown = null;
+    private Dropdown motionDropdown = null;
 
-    public Button playButton = null;
+    private Button playButton = null;
 
     private Animation myMotion = null;
 
@@ -22,6 +23,16 @@ public class SlidableMotionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var manager = FindObjectOfType<SlidableMotionManager>();
+        if (manager == null)
+        {
+            throw new InvalidOperationException("manager need set to canvas.");
+        }
+
+        timeSlider = manager.timeSlider;
+        motionDropdown = manager.motionDropdown;
+        playButton = manager.playButton;
+
         if (motionDropdown == null)
         {
             throw new InvalidOperationException("motionDropdown can not null.");
@@ -39,6 +50,17 @@ public class SlidableMotionController : MonoBehaviour
         if (myMotion == null)
         {
             throw new InvalidOperationException(gameObject.name + " is not have animation.\nSlidableMotionController need animation on Live2D model.");
+        }
+
+        if (myMotion.GetClipCount() == 0)
+        {
+            var clips = FindObjectsOfType<AnimationClip>();
+            foreach (var animationClip in clips)
+            {
+                if ( !animationClip.legacy ) continue;
+                
+                myMotion.AddClip(animationClip, animationClip.name);
+            }
         }
         
         InitMotionDropdown();

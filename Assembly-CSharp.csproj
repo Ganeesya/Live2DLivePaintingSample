@@ -98,6 +98,7 @@
     <Compile Include="Assets\Live2D\Cubism\Framework\CubismParameterStore.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\CubismPartsInspector.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\CubismUpdateController.cs" />
+    <Compile Include="Assets\Live2D\Cubism\Framework\CubismUpdateExecutionOrder.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\Expression\CubismExpressionController.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\Expression\CubismExpressionData.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\Expression\CubismExpressionList.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Assets\Live2D\Cubism\Framework\LookAt\ICubismLookTarget.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\Motion\CubismMotionController.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\Motion\CubismMotionLayer.cs" />
+    <Compile Include="Assets\Live2D\Cubism\Framework\Motion\CubismMotionPriority.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\Motion\CubismMotionState.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeController.cs" />
     <Compile Include="Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeCurveType.cs" />
@@ -192,7 +194,9 @@
     <Compile Include="Assets\Live2D\Cubism\Samples\OriginalWorkflow\Motion\CubismMotionPreview.cs" />
     <Compile Include="Assets\Live2D\Cubism\Samples\Raycasting\RaycastHitDisplay.cs" />
     <Compile Include="Assets\Live2DLivePaint\PaintController.cs" />
+    <Compile Include="Assets\Live2DLivePaint\PaintManager.cs" />
     <Compile Include="Assets\Live2DLivePaint\SlidableMotionController.cs" />
+    <Compile Include="Assets\Live2DLivePaint\SlidableMotionManager.cs" />
     <Compile Include="Assets\uWintab\Example\Scripts\Pen.cs" />
     <Compile Include="Assets\uWintab\Example\Scripts\Pressure.cs" />
     <Compile Include="Assets\uWintab\Example\Scripts\TabletInformation.cs" />
