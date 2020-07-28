@@ -1,0 +1,18 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "paintingModel.moc3",
+		"Textures": [
+			"paintingModel.1024/texture_00.png"
+		],
+		"Physics": "paintingModel.physics3.json",
+		"DisplayInfo": "paintingModel.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}

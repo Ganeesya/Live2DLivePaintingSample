@@ -45,8 +45,8 @@ public class PaintController : MonoBehaviour
             renderer.Material.SetTexture("_Retatch",paintTex );
             renderer.Material.SetTexture("_OverLine", overline);
 
-            var meshCollider = renderer.gameObject.GetComponent<MeshCollider>();
-            meshCollider.sharedMesh = renderer.Mesh;
+//            var meshCollider = renderer.gameObject.GetComponent<MeshCollider>();
+//            meshCollider.sharedMesh = renderer.Mesh;
         }
         
         // rayCasterの取得
@@ -111,7 +111,7 @@ public class PaintController : MonoBehaviour
                     result.y * 10f - 5f,
                     -500f + 9f),
                 Quaternion.Euler(-90f,0f,0f),
-                new Vector3(0.1f,0.1f,0.1f));
+                new Vector3(0.05f,0.05f,0.05f));
             _commandBuffer.DrawMesh(manager.penMesh,mat,manager.penObject.material);
         }
     }
