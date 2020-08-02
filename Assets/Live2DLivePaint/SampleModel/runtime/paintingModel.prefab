@@ -3125,7 +3125,7 @@ GameObject:
   - component: {fileID: 1522115168202809328}
   - component: {fileID: 3409496565862506812}
   m_Layer: 0
-  m_Name: paintingModel
+  m_Name: paintingmodel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

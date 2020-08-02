@@ -6,7 +6,17 @@
 			"paintingModel.1024/texture_00.png"
 		],
 		"Physics": "paintingModel.physics3.json",
-		"DisplayInfo": "paintingModel.cdi3.json"
+		"DisplayInfo": "paintingModel.cdi3.json",
+		"Motions": {
+			"": [
+				{
+					"File": "motions/m1.motion3.json"
+				},
+				{
+					"File": "motions/m2.motion3.json"
+				}
+			]
+		}
 	},
 	"Groups": [
 		{
@@ -14,5 +24,6 @@
 			"Name": "EyeBlink",
 			"Ids": []
 		}
-	]
+	],
+	"HitAreas": []
 }
