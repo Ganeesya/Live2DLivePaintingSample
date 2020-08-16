@@ -105,7 +105,7 @@ public class PaintController : MonoBehaviour
             var color = paintArea.GetPixel((int)texturePosX,(int)texturePosY);
             if( color.a < (1f/255f) ) continue; // 透明色判定
 
-            Debug.LogFormat("{0}, {1}",result.x, result.y);
+//            Debug.LogFormat("{0}, {1}",result.x, result.y);
             var mat = Matrix4x4.TRS(
                 new Vector3(result.x * 10f - 5f,
                     result.y * 10f - 5f,
@@ -118,11 +118,14 @@ public class PaintController : MonoBehaviour
 
     private bool RayCast(Vector3 inputPosition, Mesh mesh, out Vector2 resultUV)
     {
-        for (int i = 0; i < mesh.triangles.Length; i += 3)
+        var vertices = mesh.vertices;
+        var indices = mesh.triangles;
+        var uvs = mesh.uv;
+        for (int i = 0; i < indices.Length; i += 3)
         {
-            var vertexPositionA = mesh.vertices[mesh.triangles[i]];
-            var vertexPositionB = mesh.vertices[mesh.triangles[i + 1]];
-            var vertexPositionC = mesh.vertices[mesh.triangles[i + 2]];
+            var vertexPositionA = vertices[indices[i]];
+            var vertexPositionB = vertices[indices[i + 1]];
+            var vertexPositionC = vertices[indices[i + 2]];
 
             var crossProduct1 =
                 (vertexPositionB.x - vertexPositionA.x) * (inputPosition.y - vertexPositionB.y) -
@@ -155,9 +158,9 @@ public class PaintController : MonoBehaviour
                 var weightB = weightAll - weightA - weightC;
                 var weightB2 = (vCA.x * vCP.y - vCA.y * vCP.x) / 2f;
 
-                var uvA = mesh.uv[mesh.triangles[i + 0]];
-                var uvB = mesh.uv[mesh.triangles[i + 1]];
-                var uvC = mesh.uv[mesh.triangles[i + 2]];
+                var uvA = uvs[indices[i + 0]];
+                var uvB = uvs[indices[i + 1]];
+                var uvC = uvs[indices[i + 2]];
 
                 var weightAll3 = weightA + weightB + weightC;
 
