@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /**
  * 描画コントロールに必要なヒエラルキー上のオブジェクトを入れてPaintControllerで参照するためのCompo
@@ -20,6 +21,14 @@ public class PaintManager : MonoBehaviour
     void Start()
     {
         penMesh = penObject.gameObject.GetComponent<MeshFilter>().mesh;
+    }
+
+    public void ClearBuffer()
+    {
+        RenderTexture current = RenderTexture.active; 
+        RenderTexture.active = paintingCamera.targetTexture;
+        GL.Clear(true, true, Color.clear );
+        RenderTexture.active = current;
     }
 
     // Update is called once per frame
