@@ -207,7 +207,7 @@
     <None Include="Assets\Live2D\Cubism\Samples\Animation\Description.txt" />
     <None Include="Assets\Live2D\Cubism\License.txt" />
     <None Include="Assets\Live2D\import.txt" />
-    <None Include="Assets\Live2D\Cubism\Rendering\Resources\Live2D\Cubism\Shaders\UnlitRepaint.shader" />
+    <None Include="Assets\Live2DLivePaint\Materials\UnlitRepaint.shader" />
     <None Include="Assets\Live2D\Cubism\Samples\PerspectiveCamera\Description.txt" />
     <None Include="Assets\Live2D\Cubism\Samples\AsyncBenchmark\Description.txt" />
     <None Include="Assets\Live2D\Cubism\Samples\OriginalWorkflow\Demo\Description.txt" />
@@ -222,6 +222,7 @@
     <None Include="Assets\Live2D\Cubism\Rendering\Resources\Live2D\Cubism\Shaders\Unlit.shader" />
     <None Include="Assets\Live2DLivePaint\bufferShader.shader" />
     <None Include="Assets\Live2DLivePaint\License.txt" />
+    <None Include="Assets\Live2DLivePaint\Materials\CubismCG.cginc" />
     <None Include="Assets\Live2D\Cubism\Samples\OriginalWorkflow\Expression\Description.txt" />
     <None Include="Assets\Live2D\Cubism\Samples\MultipleModels\Description.txt" />
     <None Include="Assets\Live2D\Cubism\Samples\LookAt\Description.txt" />
