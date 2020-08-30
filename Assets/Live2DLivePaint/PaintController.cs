@@ -44,9 +44,6 @@ public class PaintController : MonoBehaviour
             renderer.Material.mainTexture = renderer.MainTexture;
             renderer.Material.SetTexture("_Retatch",paintTex );
             renderer.Material.SetTexture("_OverLine", overline);
-
-//            var meshCollider = renderer.gameObject.GetComponent<MeshCollider>();
-//            meshCollider.sharedMesh = renderer.Mesh;
         }
         
         // rayCasterの取得
@@ -76,25 +73,7 @@ public class PaintController : MonoBehaviour
 
         var intersectionInWorldSpace = ray.origin + ray.direction * (ray.direction.z / ray.origin.z);
         var intersectionInLocalSpace = transform.InverseTransformPoint(intersectionInWorldSpace);
-
-//        for (int i = 0; i < _colliders.Length; i++)
-//        {
-//            if( !_colliders[i].Raycast(ray,out hit, float.MaxValue) ) continue;
-//            
-//            Debug.Log(hit.collider.gameObject.name);
-//            
-//            var texturePosX = hit.textureCoord.x * paintArea.width;
-//            var texturePosY = hit.textureCoord.y * paintArea.height;
-//            var color = paintArea.GetPixel((int)texturePosX,(int)texturePosY);
-//            if( color.a < (1f/255f) ) continue; // 透明色判定
-//
-//            var mat = Matrix4x4.Translate(
-//                new Vector3(hit.textureCoord.x - 0.5f,
-//                    hit.textureCoord.y - 0.5f,
-//                    0f));
-//            _commandBuffer.DrawMesh(manager.penMesh,mat,manager.penObject.material);
-//        }
-
+        
         Vector2 result;
         for (int i = 0; i < renderers.Length; i++)
         {
@@ -143,9 +122,7 @@ public class PaintController : MonoBehaviour
                 // todo リファクタ
                 var vAB = vertexPositionB - vertexPositionA;
                 var vAC = vertexPositionC - vertexPositionA;
-                var vCA = vertexPositionA - vertexPositionC;
                 var weightAll = ( vAB.x * vAC.y - vAB.y * vAC.x ) / 2f;
-                var weightAll2 = ( vAB.x * vCA.y - vAB.y * vCA.x ) / 2f;
                 
                 var vAP = inputPosition - vertexPositionA;
                 var weightC = ( vAB.x * vAP.y - vAB.y * vAP.x ) / 2f;
@@ -154,23 +131,18 @@ public class PaintController : MonoBehaviour
                 var vBP = inputPosition - vertexPositionB;
                 var weightA = ( vBC.x * vBP.y - vBC.y * vBP.x ) / 2f;
 
-                var vCP = inputPosition - vertexPositionC;
                 var weightB = weightAll - weightA - weightC;
-                var weightB2 = (vCA.x * vCP.y - vCA.y * vCP.x) / 2f;
 
                 var uvA = uvs[indices[i + 0]];
                 var uvB = uvs[indices[i + 1]];
                 var uvC = uvs[indices[i + 2]];
 
-                var weightAll3 = weightA + weightB + weightC;
 
                 weightA /= weightAll;
                 weightB /= weightAll;
                 weightC /= weightAll;
-                weightB2 /= weightAll3;
 
                 resultUV = uvA * weightA + uvB * weightB + uvC * weightC;
-                var checkUV = uvA * weightA + uvB * weightB2 + uvC * weightC;
                 return true;
             }
         }
@@ -182,6 +154,7 @@ public class PaintController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if( _commandBuffer == null ) return;
         _commandBuffer.Clear();
         if( !Input.GetMouseButton(0) ) return;
         
